@@ -1,69 +1,73 @@
-var info = function InfoSubmit() {
-	var fName = document.SignUp("inputFirstName");
-	var lName = document.SignUp("inputLastName");
-	var email = document.SignUp("inputEmail");
-	var community = document.SignUp("inputCommunity"); 
-	var youStatus = document.SignUp("youInput")
-	var country = document.SignUp("countryInput");
-	var state = document.SignUp("stateInput"); 
+var info = function() { 
+	$('.information-fill').find('#formBTN').click(function() {
 
-	$('#formBTN').click(function(fName, lName, email, community, youStatus, country, state) {
+		$('.infomration-fill').find('.section-heading').hide(); 
+
+		var fName = document.getElementById("inputFirstName");
+		var lName = document.getElementById("inputLastName");
+		var email = document.getElementById("inputEmail");
+		var community = document.getElementById("inputCommunity"); 
+		var youStatus = document.getElementById("youInput")
+		var country = document.getElementById("countryInput");
+		var state = document.getElementById("stateInput"); 
+
 		if(fName == null || fName == "") {
-			('#inputFirstName').parent('.form-group').addClass(".has-error")
-			('#inputFirstName').attr("placeholder", "*You Must Include Your First Name")
+			$('#inputFirstName').parent('.form-group').addClass(".has-error")
+			$('#inputFirstName').attr("placeholder", "*You Must Include Your First Name")
 		}
 		else
 		{
-			('#inputFirstName').parent('.form-group').addClass(".has-success")
+			$('#inputFirstName').parent('.form-group').addClass(".has-success")
 		}
 
 		if(lName == null || lName == "") {
-			('#inputLastName').parent('.form-group').addClass(".has-error")
-			('#inputLastName').attr("placeholder", "*You Must Include Your Last Name")
+			$('#inputLastName').parent('.form-group').addClass(".has-error")
+			$('#inputLastName').attr("placeholder", "*You Must Include Your Last Name")
 		}
 		else
 		{
-			('#inputLastName').parent('.form-group').addClass(".has-success")
+			$('#inputLastName').parent('.form-group').addClass(".has-success")
 		}
 
 		if(email == null || email == "") {
-			('#inputEmail').parent('.form-group').addClass(".has-error")
-			('#inputEmail').attr("placeholder", "*You Must Include Your Email")
+			$('#inputEmail').parent('.form-group').addClass(".has-error")
+			$('#inputEmail').attr("placeholder", "*You Must Include Your Email")
 		}
 		else
 		{
-			('#inputEmail').parent('.form-group').addClass(".has-success")
+			$('#inputEmail').parent('.form-group').addClass(".has-success")
 		}
 
 		if(community == null || community == "") {
-			('#inputCommunity').parent('.form-group').addClass(".has-error")
-			('#inputCommunity').attr("placeholder", "*You Must Include Your Community")
+			$('#inputCommunity').parent('.form-group').addClass(".has-error")
+			$('#inputCommunity').attr("placeholder", "*You Must Include Your Community")
 		}
 		else
 		{
-			('#inputCommunity').parent('.form-group').addClass(".has-success")
+			$('#inputCommunity').parent('.form-group').addClass(".has-success")
 		}
 
 		if(youStatus == null || youStatus == "") {
-			('#youInput').parent('.form-group').addClass(".has-error")
-			('#youInput').attr("placeholder", "*You Must clarify if Your Status")
+			$('#youInput').parent('.form-group').addClass(".has-error")
+			$('#youInput').attr("placeholder", "*You Must clarify if Your Status")
 		}
 		else
 		{
-			('#youInput').parent('.form-group').addClass(".has-success")
+			$('#youInput').parent('.form-group').addClass(".has-success")
 		}
 
 		if(state == null || state == "") {
-			('#stateInput').parent('.form-group').addClass(".has-error")
-			('#stateInput').attr("placeholder", "*You Must Include Your State For Validation")
+			$('#stateInput').parent('.form-group').addClass(".has-error")
+			$('#stateInput').attr("placeholder", "*You Must Include Your State For Validation")
 		}
 		else
 		{
-			('#stateInput').parent('.form-group').addClass(".has-success")
+			$('#stateInput').parent('.form-group').addClass(".has-success")
 		}
+
 	});
-}
+
+};
 
 
-
-$(document).ready(info)
+$(document).ready(info);
