@@ -165,39 +165,43 @@
             </div>
             <hr class="intro-divider">
             <div class = "row">
-                <form class="form-horizontal" id = "SignUp">
-                   <div class = "col-lg-4 col-lg-offset-4">
-                        <div class="form-group">
+                <form class="form-horizontal" role = "form" id = "Validation" onsubmit = "return false">
+                   <div class="form-group">
+                        <div class = "col-lg-4 col-lg-offset-4">
                             <div >
-                                <input class="form-control" id="inputFirstName" placeholder="First Name">
+                                <input class="form-control" id="inputFirstName" placeholder="First Name" required>
+                                <span></span>
                             </div>
                         </div>
                     </div>  
-                   <div class = "col-lg-4 col-lg-offset-4">
-                        <div class="form-group">
+                   <div class = "form-group">
+                        <div class="col-lg-4 col-lg-offset-4">
                             <div >
-                                <input class="form-control" id="inputLastName" placeholder="Last Name">
+                                <input class="form-control" id="inputLastName" placeholder="Last Name" required>
+                                <span></span>
                             </div>
                         </div>
                     </div> 
-                    <div class = "col-lg-4 col-lg-offset-4">
-                        <div class="form-group">
+                    <div class="form-group">
+                        <div class = "col-lg-4 col-lg-offset-4">
                             <div >
-                                <input class="form-control" id="inputEmail" placeholder="Email">
+                                <input class="form-control" id="inputEmail" placeholder="Email" required>
+                                <span></span>                                                               
                             </div>
                         </div>
                     </div>  
-                    <div class = "col-lg-4 col-lg-offset-4">
-                        <div class="form-group">
+                    <div class="form-group" >
+                        <div class = "col-lg-4 col-lg-offset-4">
                             <div >
-                                <input class="form-control" id="inputCommunity" placeholder="High School Community (e.g. MICDS or Kirkwood)">
+                                <input class="form-control" id="inputCommunity" placeholder="High School Community (e.g. MICDS or Kirkwood)" required>
+                                <span></span>                           
                             </div>
                         </div>
                     </div>  
-                    <div class = "col-lg-4 col-lg-offset-4">
-                        <div class = "form-group"
+                    <div class = "form-group">
+                        <div class = "col-lg-4 col-lg-offset-4"
                             <label for="sel1"><strong>Who Are You</strong></label>
-                            <select class="form-control" id="youInput">
+                            <select class="form-control" id="youInput" required>
                                 <option></option>
                                 <option>High School Student</option>
                                 <option>Parent</option>
@@ -206,20 +210,20 @@
                             </select>
                         </div>
                     </div>
-                    <div class = "col-lg-4 col-lg-offset-4">
-                        <div class = "form-group"
+                    <div class = "form-group">
+                        <div class = "col-lg-4 col-lg-offset-4"
                             <label for="sel1"><strong>Country</strong></label>
-                            <select class="form-control" id="countryInput">
+                            <select class="form-control" id="countryInput" required>
                                 <option></option>
                                 <option>United States of America</option>
                                 <option>Other</option>
                             </select>
                         </div>
                     </div>
-                    <div class = "col-lg-4 col-lg-offset-4">
-                        <div class = "form-group"
+                    <div class = "form-group"> 
+                        <div class = "col-lg-4 col-lg-offset-4"
                             <label for="sel1"><strong>State</strong></label>
-                            <select class="form-control" id="stateInput">
+                            <select class="form-control" id="stateInput" required>
                                 <option></option>
                                 <option>Alabama</option>
                                 <option>Alaska</option>
@@ -274,9 +278,9 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-lg-offset-5">        
-                        <div class="form-group">
-                            <button type="submit" onclick = "return false" id = 'formBTN' class="btn btn-default">Submit</button>
+                    <div class="form-group">        
+                        <div class="col-lg-2 col-lg-offset-5">
+                            <button type="submit" value ="Submit" class="btn btn-default" id = "formBTN">Submit</button>
                         </div>
                     </div>
                 </form>
