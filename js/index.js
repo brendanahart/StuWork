@@ -42,6 +42,7 @@ var info = function() {
 			$("#formBTN").removeClass("btn-success");
 			$("#formBTN").removeClass("btn-default");
 			document.getElementById("formBTN").innerHTML = "Error!"
+			return false; 
 		}
 	});
 };
