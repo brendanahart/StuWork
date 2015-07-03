@@ -39,6 +39,22 @@ body {
     border-color: #cd5c5c;
 }
 
+#infoAbout {
+    margin-bottom: 20px;
+}
+
+#brendanImage {
+    padding-top: 70px;
+}
+
+#winnersImage {
+    padding-top: 20px;
+}
+
+#facts li {
+    font-size: 16px
+}
+
 #info .btn {
     padding: 14px 24px;
     font-size: 40px;
@@ -65,8 +81,8 @@ body {
     border-color: #cd5c5c;
 }
 
-#info p {
-  font-size: 18px;
+#infoAbout p {
+    font-size:18px;
 }
 
 footer {
