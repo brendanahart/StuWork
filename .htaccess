@@ -4,6 +4,7 @@ RewriteEngine on
 RewriteCond %{HTTP_HOST} ^stuwork.com[nc]
 RewriteRule ^(.*)$ http://www.stuwork.com/$1 [r=301,nc]
 
+RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^([^\.]+)$ $1.html [NC,L]
 
