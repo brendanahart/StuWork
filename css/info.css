@@ -85,6 +85,10 @@ body {
     font-size:18px;
 }
 
+#info p {
+    font-size:18px;
+}
+
 footer {
     padding: 25px 0;
     background-color: #f8f8f8;
