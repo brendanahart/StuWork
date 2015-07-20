@@ -36,9 +36,9 @@
       // Button.  See the onlogin handler attached to it in the sample
       // code below.
       function checkLoginState() {
-        FB.login(function(response) {
+        FB.getLoginStatus(function(response) {
           statusChangeCallback(response);
-        }, {scope: 'public_profile,email,user_groups'});
+        });
       }
 
       window.fbAsyncInit = function() {
@@ -95,10 +95,11 @@
       the FB.login() function when clicked.
     -->
 
-    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+    <fb:login-button scope="public_profile,email,user_groups" onlogin="checkLoginState();">
     </fb:login-button>
 
     <div id="status">
     </div>
+
   </body>
 </html>
