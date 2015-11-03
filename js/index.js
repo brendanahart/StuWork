@@ -1,3 +1,4 @@
+Parse.initialize("UkyCtswsBB3q0C2diQANxlYEzwc4Tc2zHshOV7fm", "kAZV84cCvFW0blKhINL0kLT8hSvX0WG5Tr5erzxK");
 
 // Sign Up Form Validation! 
 var info = function() { 
@@ -44,6 +45,30 @@ var info = function() {
 			document.getElementById("formBTN").innerHTML = "Error!"
 			return false;
 		}
+
+		var UserInfo = Parse.Object.extend("UserInfo");
+		var userInfo = new UserInfo(); 
+
+		userInfo.set("FirstName", $("#inputFirstName"));
+		userInfo.set("LastName", $("#inputLastName"));
+		userInfo.set("Email", $("#inputEmail"));
+		userInfo.set("School", $("#inputCommunity")); 
+		userInfo.set("SchoolRelation", $("#youInput")); 
+		userInfo.set("Country", $("#countryInput")); 
+		userInfo.set("State", $("#stateInput")); 
+
+		userInfo.save(null, {
+			success: function(gameScore) {
+		    	// Execute any logic that should take place after the object is saved.
+				alert('New object created with objectId: ' + gameScore.id);
+			},
+			error: function(gameScore, error) {
+		    	// Execute any logic that should take place if the save fails.
+		    	// error is a Parse.Error with an error code and message.
+		    	alert('Failed to create new object, with error code: ' + error.message);
+		  }
+		});
+
 	});
 };
 
