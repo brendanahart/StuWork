@@ -49,13 +49,13 @@ var info = function() {
 		var UserInfo = Parse.Object.extend("UserInfo");
 		var userInfo = new UserInfo(); 
 
-		userInfo.set("FirstName", $("#inputFirstName"));
-		userInfo.set("LastName", $("#inputLastName"));
-		userInfo.set("Email", $("#inputEmail"));
-		userInfo.set("School", $("#inputCommunity")); 
-		userInfo.set("SchoolRelation", $("#youInput")); 
-		userInfo.set("Country", $("#countryInput")); 
-		userInfo.set("State", $("#stateInput")); 
+		userInfo.set("FirstName", $("#inputFirstName").val());
+		userInfo.set("LastName", $("#inputLastName").val());
+		userInfo.set("Email", $("#inputEmail").val());
+		userInfo.set("School", $("#inputCommunity").val()); 
+		userInfo.set("SchoolRelation", $("#youInput").val()); 
+		userInfo.set("Country", $("#countryInput").val()); 
+		userInfo.set("State", $("#stateInput").val()); 
 
 		userInfo.save(null, {
 			success: function(gameScore) {
