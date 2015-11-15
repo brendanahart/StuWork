@@ -13,7 +13,7 @@ myApp.controller('UserController', function() {
 			return; 
 		}
 
-		if (firstName === "" || lastName === "" || community === "" || relation === "" || email === "" || password === "" || confirmPassword === "")
+		if (firstName == "" || lastName == "" || community == "" || relation == "" || email == "" || password == "" || confirmPassword == "")
 		{
 			console.log("You did not enter all the required information");
 			return; 
