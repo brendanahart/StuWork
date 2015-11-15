@@ -5,10 +5,6 @@ myApp.controller('UserController', function() {
 
 	var schools = []; 
 
-	function() {
-		// get relationship table + school table to store in array 
-	}
-
 	user.signUp = function(var firstName, var lastName, var community, var relation, var email, var password, var confirmPassword)
 	{
 		if (password !== confirmPassword)
@@ -34,6 +30,7 @@ myApp.controller('UserController', function() {
 		// relations?
 		user.set("SchoolRelation", community); 
 
+		// TODO
 		// add user to role? - 2 different roles, adult + student
 
 		user.signUp(null, {
