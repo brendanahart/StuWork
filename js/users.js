@@ -5,7 +5,7 @@ myApp.controller('UserController', function() {
 
 	var schools = []; 
 
-	user.signUp = function(var firstName, var lastName, var community, var relation, var email, var password, var confirmPassword)
+	user.signUp = function(firstName, lastName, community, relation, email, password, confirmPassword)
 	{
 		if (password !== confirmPassword)
 		{
