@@ -91,7 +91,7 @@ myApp.controller('UserController', function() {
 			}
 		});
 
-		var role = Parse.Query.extend("SchoolRelation");
+		var role = Parse.Object.extend("SchoolRelation");
 		var queryRelation = new Parse.Query(role); 
 		queryRelation.equalTo("Relation", relation); 
 		querySchool.find({
