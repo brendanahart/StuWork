@@ -95,7 +95,7 @@ myApp.controller('UserController', function() {
 		var role = Parse.Object.extend("SchoolRelation");
 		var queryRelation = new Parse.Query(role); 
 		queryRelation.equalTo("Relation", relation); 
-		querySchool.find({
+		queryRelation.find({
 			success: function(resultsRole) {
 				console.log("Found relation"); 
 				var roleObj = resultsRole[0];
