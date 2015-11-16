@@ -81,9 +81,10 @@ myApp.controller('UserController', function() {
 		var querySchool = new Parse.Query(school)
 		querySchool.equalTo("SchoolName", community);
 		querySchool.find({
-			success: function(results) {
+			success: function(resultsSchool) {
 				console.log("Found school"); 
-				user.set("SchoolName", results[0]); 
+				var schoolObj = resultsSchool[0];
+				user.set("SchoolName", schoolObj); 
 
 			},
 			error: function(error) {
@@ -95,9 +96,10 @@ myApp.controller('UserController', function() {
 		var queryRelation = new Parse.Query(role); 
 		queryRelation.equalTo("Relation", relation); 
 		querySchool.find({
-			success: function(results) {
+			success: function(resultsRole) {
 				console.log("Found relation"); 
-				user.set("Relationship", results[0]);
+				var roleObj = resultsRole[0];
+				user.set("Relationship", roleObj);
 			},
 			error: function(error) {
 				console.log("Role could not be mapped"); 
