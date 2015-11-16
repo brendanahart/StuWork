@@ -6,7 +6,7 @@ myApp.controller('UserController', function() {
 	var schools = []; 
 	var roles = []
 
-	function()
+	var user.init = function()
 	{
 		var schools = Parse.Object.extend("Schools");
 		var querySchool = new Parse.Query.(schools); 
@@ -50,6 +50,8 @@ myApp.controller('UserController', function() {
 			}
 		})
 	}
+
+	init(); 
 
 	user.signUp = function(firstName, lastName, community, relation, email, password, confirmPassword)
 	{
