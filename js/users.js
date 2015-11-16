@@ -9,7 +9,7 @@ myApp.controller('UserController', function() {
 	user.initialization = function()
 	{
 		var schools = Parse.Object.extend("Schools");
-		var querySchool = new Parse.Query.(schools); 
+		var querySchool = new Parse.Query(schools); 
 
 		querySchool.exists("SchoolName"); 
 
@@ -30,7 +30,7 @@ myApp.controller('UserController', function() {
 		});
 
 		var relation = Parse.Object.extend("SchoolRelation");
-		var queryRelation = new Parse.Query.(relation); 
+		var queryRelation = new Parse.Query(relation); 
 
 		queryRelation.exists("Relation"); 
 
