@@ -108,7 +108,15 @@ myApp.controller('UserController', function() {
 
 		user.signUp(null, {
 			success: function(user) {
-		    	console.log("You can now use the app now!"); 
+		    	alert("You can now use the app now!"); 
+		    	user.firstName = "";
+		    	user.lastName = "";
+		    	user.email = "";
+		    	user.password = "";
+		    	user.confirmPassword = "";
+		    	user.community = "";
+		    	user.relation = "";
+		    	user.signUpForm.$setPristine(); 
 		    },
 		    error: function(user, error) {
 		    	// Show the error message somewhere and let the user try again.
