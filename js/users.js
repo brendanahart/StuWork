@@ -3,10 +3,10 @@ var myApp = angular.module('userApp', []);
 myApp.controller('UserController', function() {
 	var user = this; 
 
-	var schools = []; 
-	var roles = []
+	user.schools = []; 
+	user.roles = []
 
-	var user.init = function()
+	user.initialization = function()
 	{
 		var schools = Parse.Object.extend("Schools");
 		var querySchool = new Parse.Query.(schools); 
@@ -20,7 +20,7 @@ myApp.controller('UserController', function() {
 				for (var i = 0; i < results.length; i++)
 				{
 					var school = results[i];
-					schools[i] = object.get("SchoolName"); 
+					user.schools[i] = object.get("SchoolName"); 
 				}
 			},
 			error: function(error)
@@ -41,7 +41,7 @@ myApp.controller('UserController', function() {
 				for (var i = 0; i < results.length; i++)
 				{
 					var relation = results[i];
-					roles[i] = object.get("Relation"); 
+					user.roles[i] = object.get("Relation"); 
 				}
 			},
 			error: function(error)
@@ -51,7 +51,7 @@ myApp.controller('UserController', function() {
 		})
 	}
 
-	init(); 
+	user.initialization(); 
 
 	user.signUp = function(firstName, lastName, community, relation, email, password, confirmPassword)
 	{
