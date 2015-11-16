@@ -78,36 +78,9 @@ myApp.controller('UserController', function() {
 		// user.set("SchoolRelation", school)
 
 		user.signUp(null, {
-			success: function(user) {
-			var role = Parse.Object.extend("SchoolRelation");
-			var queryRelation = new Parse.Query(role); 
-			queryRelation.equalTo("Relation", relation); 
-			queryRelation.find({
-				success: function(resultsRole) {
-					console.log("Found relation"); 
-					var roleObj = resultsRole[0];
-					roleObj.set("Users", user);
-
-					var school = Parse.Object.extend("Schools"); 
-					var querySchool = new Parse.Query(school)
-					querySchool.equalTo("SchoolName", community);
-					querySchool.find({
-						success: function(resultsSchool) {
-							console.log("Found school"); 
-							var schoolObj = resultsSchool[0];
-							schoolObj.set("Members", user); 
-
-						},
-						error: function(error) {
-							console.log("School could not be mapped"); 
-						}
-					});
-				},
-				error: function(error) {
-					console.log("Role could not be mapped"); 
-				}
-			});
-		    	alert("You can now use the app now!"); 
+			success: function(user, community, relation) {
+				user.mapRolesSchools(community, relation); 
+		    	alert("You can now user the app now!"); 
 		    	user.firstName = "";
 		    	user.lastName = "";
 		    	user.email = "";
@@ -121,6 +94,39 @@ myApp.controller('UserController', function() {
 		    	// Show the error message somewhere and let the user try again.
 		    	console.log("Error: " + error.code + " " + error.message);
 		    }
+		});
+	}
+
+	user.mapRolesSchools = function(community, relation)
+	{
+		var currentUser = Parse.User.current(); 
+		var role = Parse.Object.extend("SchoolRelation");
+		var queryRelation = new Parse.Query(role); 
+		queryRelation.equalTo("Relation", relation); 
+		queryRelation.find({
+			success: function(resultsRole, currentUser) {
+				console.log("Found relation"); 
+				var roleObj = resultsRole[0];
+				roleObj.set("Users", currentUser);
+			},
+			error: function(error) {
+				console.log("Role could not be mapped"); 
+			}
+		});
+
+		var school = Parse.Object.extend("Schools"); 
+		var querySchool = new Parse.Query(school)
+		querySchool.equalTo("SchoolName", community);
+		querySchool.find({
+			success: function(resultsSchool, currentUser) {
+				console.log("Found school"); 
+				var schoolObj = resultsSchool[0];
+				schoolObj.set("Members", currentUser); 
+
+			},
+			error: function(error) {
+				console.log("School could not be mapped"); 
+			}
 		});
 	}
 });
