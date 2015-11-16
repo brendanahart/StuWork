@@ -20,7 +20,7 @@ myApp.controller('UserController', function() {
 				for (var i = 0; i < results.length; i++)
 				{
 					var school = results[i];
-					user.schools[i] = object.get("SchoolName"); 
+					user.schools[i] = school.get("SchoolName"); 
 				}
 			},
 			error: function(error)
@@ -41,7 +41,7 @@ myApp.controller('UserController', function() {
 				for (var i = 0; i < results.length; i++)
 				{
 					var relation = results[i];
-					user.roles[i] = object.get("Relation"); 
+					user.roles[i] = relation.get("Relation"); 
 				}
 			},
 			error: function(error)
