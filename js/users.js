@@ -84,7 +84,7 @@ myApp.controller('UserController', function() {
 			success: function(resultsSchool) {
 				console.log("Found school"); 
 				var schoolObj = resultsSchool[0];
-				user.set("SchoolName", schoolObj); 
+				schoolObj.set("Members", user); 
 
 			},
 			error: function(error) {
@@ -99,7 +99,7 @@ myApp.controller('UserController', function() {
 			success: function(resultsRole) {
 				console.log("Found relation"); 
 				var roleObj = resultsRole[0];
-				user.set("Relationship", roleObj);
+				roleObj.set("Users", user);
 			},
 			error: function(error) {
 				console.log("Role could not be mapped"); 
