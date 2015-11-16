@@ -3,8 +3,8 @@ var myApp = angular.module('userApp', []);
 myApp.controller('UserController', function() {
 	var user = this; 
 
-	var user.schools = []; 
-	var user.roles = []
+	var schools = []; 
+	var roles = []
 
 	function()
 	{
@@ -20,7 +20,7 @@ myApp.controller('UserController', function() {
 				for (var i = 0; i < results.length; i++)
 				{
 					var school = results[i];
-					user.schools[i] = object.get("SchoolName"); 
+					schools[i] = object.get("SchoolName"); 
 				}
 			},
 			error: function(error)
@@ -32,7 +32,7 @@ myApp.controller('UserController', function() {
 		var relation = Parse.Object.extend("SchoolRelation");
 		var queryRelation = new Parse.Query.(relation); 
 
-		queryRelation.exists("SchoolName"); 
+		queryRelation.exists("Relation"); 
 
 		queryRelation.find({
 			success: function(results) {
@@ -41,7 +41,7 @@ myApp.controller('UserController', function() {
 				for (var i = 0; i < results.length; i++)
 				{
 					var relation = results[i];
-					user.roles[i] = object.get("Relation"); 
+					roles[i] = object.get("Relation"); 
 				}
 			},
 			error: function(error)
