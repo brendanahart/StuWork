@@ -3,11 +3,57 @@ var myApp = angular.module('userApp', []);
 myApp.controller('UserController', function() {
 	var user = this; 
 
-	var schools = []; 
+	var user.schools = []; 
+	var user.roles = []
+
+	function()
+	{
+		var schools = Parse.Object.extend("Schools");
+		var querySchool = new Parse.Query.(schools); 
+
+		querySchool.exists("SchoolName"); 
+
+		querySchool.find({
+			success: function(results) {
+				console.log("Successfully retrieved " + results.length + " scores."); 
+
+				for (var i = 0; i < results.length; i++)
+				{
+					var school = results[i];
+					user.schools[i] = object.get("SchoolName"); 
+				}
+			},
+			error: function(error)
+			{
+				console.log("Error: " + error.code + " " + error.message)
+			}
+		});
+
+		var relation = Parse.Object.extend("SchoolRelation");
+		var queryRelation = new Parse.Query.(relation); 
+
+		queryRelation.exists("SchoolName"); 
+
+		queryRelation.find({
+			success: function(results) {
+				console.log("Successfully retrieved " + results.length + " scores."); 
+
+				for (var i = 0; i < results.length; i++)
+				{
+					var relation = results[i];
+					user.roles[i] = object.get("Relation"); 
+				}
+			},
+			error: function(error)
+			{
+				console.log("Error: " + error.code + " " + error.message)
+			}
+		})
+	}
 
 	user.signUp = function(firstName, lastName, community, relation, email, password, confirmPassword)
 	{
-		if (password !== confirmPassword)
+		if (password != confirmPassword)
 		{
 			console.log("Your password did not match the confirmation password");
 			return; 
@@ -25,21 +71,44 @@ myApp.controller('UserController', function() {
 		user.set("email", email);
 		user.set("FirstName", firstName); 
 		user.set("LastName", lastName); 
-		user.set("Relationship", relation); 
 
-		// relations?
-		user.set("SchoolRelation", community); 
+		// query school object based on the community input and assign it to an object
+		// user.set("SchoolRelation", school)
 
-		// TODO
-		// add user to role? - 2 different roles, adult + student
+		var school = Parse.Object.extend("Schools"); 
+		var querySchool = new Parse.Query(school)
+		querySchool.equalTo("SchoolName", community);
+		querySchool.find({
+			success: function(results) {
+				console.log("Found school"); 
+				user.set("SchoolName", results[0]); 
+
+			},
+			error: function(error) {
+				console.log("School could not be mapped"); 
+			}
+		});
+
+		var role = Parse.Query.extend("SchoolRelation");
+		var queryRelation = new Parse.Query(role); 
+		queryRelation.equalTo("Relation", relation); 
+		querySchool.find({
+			success: function(results) {
+				console.log("Found relation"); 
+				user.set("Relationship", results[0]);
+			},
+			error: function(error) {
+				console.log("Role could not be mapped"); 
+			}
+		});
 
 		user.signUp(null, {
 			success: function(user) {
-		    // Hooray! Let them use the app now.
+		    	console.log("You can now use the app now!"); 
 		    },
 		    error: function(user, error) {
-		    // Show the error message somewhere and let the user try again.
-		    alert("Error: " + error.code + " " + error.message);
+		    	// Show the error message somewhere and let the user try again.
+		    	console.log("Error: " + error.code + " " + error.message);
 		    }
 		});
 	}
