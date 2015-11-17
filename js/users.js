@@ -111,7 +111,7 @@ myApp.controller('UserController', function() {
 		// user.set("SchoolRelation", school)
 
 		user.signUp(null, {
-			success: function(user, community, relation) {
+			success: function(user) {
 				user.mapRolesSchools(community, relation); 
 		    	alert("You can now user the app now!"); 
 		    	user.firstName = "";
