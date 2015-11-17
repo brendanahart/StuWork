@@ -51,8 +51,6 @@ myApp.controller('UserController', function() {
 		})
 	}
 
-	user.initialization(); 
-
 	user.mapRolesSchools = function(community, relation)
 	{
 		var currentUser = Parse.User.current(); 
@@ -85,6 +83,8 @@ myApp.controller('UserController', function() {
 			}
 		});
 	}
+
+	user.initialization(); 
 
 	user.signUp = function(firstName, lastName, community, relation, email, password, confirmPassword)
 	{
