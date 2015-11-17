@@ -112,7 +112,6 @@ myApp.controller('UserController', function() {
 
 		user.signUp(null, {
 			success: function(user) {
-				user.mapRolesSchools(community, relation); 
 		    	alert("You can now user the app now!"); 
 		    	user.firstName = "";
 		    	user.lastName = "";
@@ -121,12 +120,13 @@ myApp.controller('UserController', function() {
 		    	user.confirmPassword = "";
 		    	user.community = "";
 		    	user.relation = "";
-		    	user.signUpForm.$setPristine(); 
 		    },
 		    error: function(user, error) {
 		    	// Show the error message somewhere and let the user try again.
 		    	console.log("Error: " + error.code + " " + error.message);
 		    }
 		});
+
+		mapRolesSchools(community, relation); 
 	}
 });
