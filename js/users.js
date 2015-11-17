@@ -127,6 +127,6 @@ myApp.controller('UserController', function() {
 		    }
 		});
 
-		mapRolesSchools(community, relation); 
+		user.mapRolesSchools(community, relation); 
 	}
 });
