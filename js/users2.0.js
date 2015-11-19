@@ -68,8 +68,8 @@ myApp.controller('RelationController', function() {
 			success: function(resultsRole) {
 				console.log("Found relation"); 
 				var roleObj = resultsRole[0];
-				var currentUser = Parse.User.current(); 
-				roleObj.set("Users", currentUser);
+				var user = Parse.User.current(); 
+				roleObj.set("Users", user);
 			},
 			error: function(error) {
 				console.log("Role could not be mapped"); 
@@ -83,8 +83,8 @@ myApp.controller('RelationController', function() {
 			success: function(resultsSchool) {
 				console.log("Found school"); 
 				var schoolObj = resultsSchool[0];
-				var currentUser = Parse.User.current(); 
-				schoolObj.set("Members", currentUser); 
+				var user = Parse.User.current(); 
+				schoolObj.set("Members", user); 
 
 			},
 			error: function(error) {
