@@ -1,10 +1,62 @@
 var myApp = angular.module('userApp', []);
 
-myApp.controller('RelatioController', function() {
+myApp.controller('RelationController', function() {
 	// create a new page to map relations
 	// get current user
 
-	user.mapRolesSchools = function(community, relation)
+	var rel = this; 
+
+	rel.schools = []; 
+	rel.roles = []
+
+	rel.initialization = function()
+	{
+		var schools = Parse.Object.extend("Schools");
+		var querySchool = new Parse.Query(schools); 
+
+		querySchool.exists("SchoolName"); 
+
+		querySchool.find({
+			success: function(results) {
+				console.log("Successfully retrieved " + results.length + " scores."); 
+
+				for (var i = 0; i < results.length; i++)
+				{
+					var school = results[i];
+					user.schools[i] = school.get("SchoolName"); 
+				}
+			},
+			error: function(error)
+			{
+				console.log("Error: " + error.code + " " + error.message)
+			}
+		});
+
+		var relation = Parse.Object.extend("SchoolRelation");
+		var queryRelation = new Parse.Query(relation); 
+
+		queryRelation.exists("Relation"); 
+
+		queryRelation.find({
+			success: function(results) {
+				console.log("Successfully retrieved " + results.length + " scores."); 
+
+				for (var i = 0; i < results.length; i++)
+				{
+					var relation = results[i];
+					user.roles[i] = relation.get("Relation"); 
+				}
+			},
+			error: function(error)
+			{
+				console.log("Error: " + error.code + " " + error.message)
+			}
+		})
+	}
+
+	rel.initialization(); 
+
+	rel.mapRolesSchools = function(community, relation)
 	{
 		var currentUser = Parse.User.current(); 
 		var role = Parse.Object.extend("SchoolRelation");
@@ -36,4 +88,4 @@ myApp.controller('RelatioController', function() {
 			}
 		});
 	}
-}
+});
