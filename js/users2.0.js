@@ -25,7 +25,7 @@ myApp.controller('RelationController', function() {
 				for (var i = 0; i < results.length; i++)
 				{
 					var school = results[i];
-					user.schools[i] = school.get("SchoolName"); 
+					rel.schools[i] = school.get("SchoolName"); 
 				}
 			},
 			error: function(error)
@@ -46,7 +46,7 @@ myApp.controller('RelationController', function() {
 				for (var i = 0; i < results.length; i++)
 				{
 					var relation = results[i];
-					user.roles[i] = relation.get("Relation"); 
+					rel.roles[i] = relation.get("Relation"); 
 				}
 			},
 			error: function(error)
