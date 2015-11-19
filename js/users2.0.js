@@ -70,6 +70,7 @@ myApp.controller('RelationController', function() {
 				var roleObj = resultsRole[0];
 				var user = Parse.User.current(); 
 				user.set("Relationship", roleObj);
+				user.save(); 
 			},
 			error: function(error) {
 				console.log("Role could not be mapped"); 
@@ -85,7 +86,7 @@ myApp.controller('RelationController', function() {
 				var schoolObj = resultsSchool[0];
 				var user = Parse.User.current(); 
 				user.set("community", schoolObj); 
-
+				user.save()
 			},
 			error: function(error) {
 				console.log("School could not be mapped"); 
