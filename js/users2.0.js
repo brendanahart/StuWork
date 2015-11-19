@@ -65,9 +65,10 @@ myApp.controller('RelationController', function() {
 		var queryRelation = new Parse.Query(role); 
 		queryRelation.equalTo("Relation", relation); 
 		queryRelation.find({
-			success: function(resultsRole, currentUser) {
+			success: function(resultsRole) {
 				console.log("Found relation"); 
 				var roleObj = resultsRole[0];
+				var currentUser = Parse.User.current(); 
 				roleObj.set("Users", currentUser);
 			},
 			error: function(error) {
@@ -79,9 +80,10 @@ myApp.controller('RelationController', function() {
 		var querySchool = new Parse.Query(school)
 		querySchool.equalTo("SchoolName", community);
 		querySchool.find({
-			success: function(resultsSchool, currentUser) {
+			success: function(resultsSchool) {
 				console.log("Found school"); 
 				var schoolObj = resultsSchool[0];
+				var currentUser = Parse.User.current(); 
 				schoolObj.set("Members", currentUser); 
 
 			},
