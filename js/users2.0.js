@@ -86,7 +86,7 @@ myApp.controller('RelationController', function() {
 				var schoolObj = resultsSchool[0];
 				var user = Parse.User.current(); 
 				user.set("community", schoolObj); 
-				user.save()
+				user.save();
 			},
 			error: function(error) {
 				console.log("School could not be mapped"); 
