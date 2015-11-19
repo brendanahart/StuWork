@@ -85,7 +85,7 @@ myApp.controller('RelationController', function() {
 				console.log("Found school"); 
 				var schoolObj = resultsSchool[0];
 				var user = Parse.User.current(); 
-				user.set("community", schoolObj); 
+				user.set("Community", schoolObj); 
 				user.save();
 			},
 			error: function(error) {
