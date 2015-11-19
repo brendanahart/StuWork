@@ -1,3 +1,5 @@
+Parse.initialize("UkyCtswsBB3q0C2diQANxlYEzwc4Tc2zHshOV7fm", "kAZV84cCvFW0blKhINL0kLT8hSvX0WG5Tr5erzxK");
+
 var myApp = angular.module('userApp', []);
 
 myApp.controller('RelationController', function() {
