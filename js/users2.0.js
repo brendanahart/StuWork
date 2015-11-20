@@ -10,6 +10,8 @@ myApp.controller('RelationController', function() {
 
 	rel.schools = []; 
 	rel.roles = []
+	rel.firstName;
+	rel.userEmail;
 
 	rel.initialization = function()
 	{
@@ -54,6 +56,11 @@ myApp.controller('RelationController', function() {
 				console.log("Error: " + error.code + " " + error.message)
 			}
 		})
+
+		var currentUser = Parse.User.current(); 
+
+		rel.firstName = currentUser.get("FirstName");
+		rel.userEmail = currentUser.get("email"); 
 	}
 
 	rel.initialization(); 

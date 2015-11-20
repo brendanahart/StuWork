@@ -54,9 +54,7 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
-                        <p> Hello {{ relation.firstName }}!</p>
-                    </ul>
+                    <h4 class="navbar-text navbar-right">Hello {{ rel.firstName }}!</h4>
                 </div>
                 <!-- /.navbar-collapse -->
             </div>
@@ -69,7 +67,7 @@
                     <div class="col-md-4"></div>
                     <div class="col-md-4 text-center">
                         <div class="page-heder">
-                            <h1> Hello {{ relation.firstName }} </h1>
+                            <h1> Hello {{ rel.firstName }} </h1>
                         </div>
                     </div>
                     <div class="col-md-4"></div>
@@ -78,6 +76,7 @@
                     <div class="col-md-2"></div>
                     <div class="col-md-8 text-center">
                         <p class="lead">Thank you for signing up for StuWork! StuWork will allow you to connect with your community through a micro-job marketplace! In order for you to do this, we need for you to fill our your relation to your community and what community you are apart of! This is vital to your experience at StuWork!</p>
+                        <p class="lead"> Also, you must authenticate your email in order to sign in! Check your inbox for the email {{ rel.userEmail }}!</p>
                     </div>
                     <div class="col-md-2"></div>
                 </div>
