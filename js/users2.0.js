@@ -94,7 +94,7 @@ myApp.controller('RelationController', function() {
 				var user = Parse.User.current(); 
 				user.set("Community", schoolObj); 
 				user.save();
-		    	window.location.href = "http://stuwork.com/EmailVerification.html"
+		    	window.location.href = "http://stuwork.com/index.html"
 
 			},
 			error: function(error) {
