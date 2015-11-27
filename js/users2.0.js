@@ -94,6 +94,8 @@ myApp.controller('RelationController', function() {
 				var user = Parse.User.current(); 
 				user.set("Community", schoolObj); 
 				user.save();
+		    	window.location.href = "http://stuwork.com/EmailVerification.html"
+
 			},
 			error: function(error) {
 				console.log("School could not be mapped"); 
