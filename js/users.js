@@ -59,4 +59,5 @@ myApp.controller('UserController', function() {
 				alert("Error: " + error.code + " " + error.message); 
 			}
 		});
+	}
 });
