@@ -30,7 +30,7 @@ myApp.controller('UserController', function() {
 		user.signUp(null, {
 			success: function(user) {
 		    	alert("You can now user the app now!"); 
-		    	window.location.href = "http://stuwork.com/whoareyou.html"
+		    	window.location.href = "http://stuwork.com/whoareyou.html";
 		    },
 		    error: function(user, error) {
 		    	// Show the error message somewhere and let the user try again.
@@ -38,4 +38,25 @@ myApp.controller('UserController', function() {
 		    }
 		});
 	}
+
+	user.Login = function(email, password)
+	{
+		Parse.User.logIn(email, password, {
+			success: function(user) {
+				alert("You can now go to your profile!"); 
+				/*
+				if(user->Relationship.Relation == 'Student')
+				{
+					window.location.href = "http://stuwork.com/studentProfile.html"; 
+				}
+				else 
+				{
+					window.location.href = "http://stuwork.com/adultProfile.html";
+				}
+				*/
+			},
+			error: function(user, error) {
+				alert("Error: " + error.code + " " + error.message); 
+			}
+		});
 });
