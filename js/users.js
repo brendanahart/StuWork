@@ -46,8 +46,9 @@ myApp.controller('UserController', function() {
 				if (user.get('emailVerified'))
 				{
 					alert("You can now go to your profile!"); 
-					/*
-					if(user->Relationship.Relation == 'Student')
+					var relation = user.get("Relationship"); 
+					var relationship = relation.get('Relation'); 
+					if(relationship == 'Student')
 					{
 						window.location.href = "http://stuwork.com/studentProfile.html"; 
 					}
