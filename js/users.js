@@ -56,7 +56,6 @@ myApp.controller('UserController', function() {
 					{
 						window.location.href = "http://stuwork.com/adultProfile.html";
 					}
-					*/
 				}
 				else 
 				{
