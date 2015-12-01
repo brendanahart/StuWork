@@ -43,7 +43,7 @@ myApp.controller('UserController', function() {
 	{
 		Parse.User.logIn(email, password, {
 			success: function(user) {
-				if (user.EmailVerified)
+				if (user.get('emailVerified'))
 				{
 					alert("You can now go to your profile!"); 
 					/*
