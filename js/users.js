@@ -43,17 +43,25 @@ myApp.controller('UserController', function() {
 	{
 		Parse.User.logIn(email, password, {
 			success: function(user) {
-				alert("You can now go to your profile!"); 
-				/*
-				if(user->Relationship.Relation == 'Student')
+				if (user.EmailVerified)
 				{
-					window.location.href = "http://stuwork.com/studentProfile.html"; 
+					alert("You can now go to your profile!"); 
+					/*
+					if(user->Relationship.Relation == 'Student')
+					{
+						window.location.href = "http://stuwork.com/studentProfile.html"; 
+					}
+					else 
+					{
+						window.location.href = "http://stuwork.com/adultProfile.html";
+					}
+					*/
 				}
 				else 
 				{
-					window.location.href = "http://stuwork.com/adultProfile.html";
+					alert("Error: You must verify your email!"); 
 				}
-				*/
+
 			},
 			error: function(user, error) {
 				alert("Error: " + error.code + " " + error.message); 
