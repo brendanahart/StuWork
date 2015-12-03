@@ -43,10 +43,10 @@ myApp.controller('UserController', function() {
 	{
 		Parse.User.logIn(email, password, {
 			success: function(user) {
-				if (user.get('emailVerified'))
+				if (user.get('emailVerified') && user.get('Relationship') && user.get('Community'))
 				{
 					alert("You can now go to your profile!"); 
-					var relation = user.get("Relationship").get('Relation'); 
+					var relation = user.get("Relationship").get("Relation"); 
 					if(relation == 'Student')
 					{
 						window.location.href = "http://stuwork.com/studentProfile.html"; 
@@ -58,7 +58,7 @@ myApp.controller('UserController', function() {
 				}
 				else 
 				{
-					alert("Error: You must verify your email!"); 
+					alert("Error: You must verify your email or map your community and relation!"); 
 				}
 
 			},
